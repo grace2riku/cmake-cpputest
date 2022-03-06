@@ -18,6 +18,8 @@ TEST_GROUP(LedDriver)
 
 TEST(LedDriver, LedsOffAfterCreate)
 {
-//  FAIL("Start here");
+  uint16_t virtualLeds = 0xffff;
+  LedDriver_Create(&virtualLeds);
+  LONGS_EQUAL(0, virtualLeds);
 }
 
