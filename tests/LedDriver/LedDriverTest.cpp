@@ -18,6 +18,6 @@ TEST_GROUP(LedDriver)
 
 TEST(LedDriver, LedsOffAfterCreate)
 {
-  FAIL("Start here");
+//  FAIL("Start here");
 }
 
