@@ -16,12 +16,7 @@ TEST_GROUP(LedDriver)
     }
 };
 
-TEST(LedDriver, LedsOffAfterCreate)
-{
-  uint16_t virtualLeds = 0xffff;
-  LedDriver_Create(&virtualLeds);
-  LONGS_EQUAL(0, virtualLeds);
-}
+// テストは下に書いてあるものから先に実行される
 
 TEST(LedDriver, TurnOnLedOne)
 {
@@ -30,3 +25,11 @@ TEST(LedDriver, TurnOnLedOne)
   LedDriver_TurnOn(1);
   LONGS_EQUAL(1, virtualLeds);
 }
+
+TEST(LedDriver, LedsOffAfterCreate)
+{
+  uint16_t virtualLeds = 0xffff;
+  LedDriver_Create(&virtualLeds);
+  LONGS_EQUAL(0, virtualLeds);
+}
+
