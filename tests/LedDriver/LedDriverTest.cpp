@@ -5,10 +5,13 @@ extern "C"
 
 #include "CppUTest/TestHarness.h"
 
+
 TEST_GROUP(LedDriver)
 {
-    void setup()
+    uint16_t virtualLeds; // TEST_GROUPの中の変数はTEST_GROUPで共有できる
+    void setup()  // setupは各TEST実行の際に呼び出される
     {
+      LedDriver_Create(&virtualLeds);
     }
 
     void teardown()
@@ -18,27 +21,22 @@ TEST_GROUP(LedDriver)
 
 // テストは下に書いてあるものから先に実行される
 
-TEST(LedDriver, TurnOffLedOne)
+TEST(LedDriver, LedsOffAfterCreate)
 {
-  uint16_t virtualLeds;
+  virtualLeds = 0xffff;
   LedDriver_Create(&virtualLeds);
-  LedDriver_TurnOn(1);
-  LedDriver_TurnOff(1);
   LONGS_EQUAL(0, virtualLeds);
 }
 
 TEST(LedDriver, TurnOnLedOne)
 {
-  uint16_t virtualLeds;
-  LedDriver_Create(&virtualLeds);
   LedDriver_TurnOn(1);
   LONGS_EQUAL(1, virtualLeds);
 }
 
-TEST(LedDriver, LedsOffAfterCreate)
+TEST(LedDriver, TurnOffLedOne)
 {
-  uint16_t virtualLeds = 0xffff;
-  LedDriver_Create(&virtualLeds);
+  LedDriver_TurnOn(1);
+  LedDriver_TurnOff(1);
   LONGS_EQUAL(0, virtualLeds);
 }
-
