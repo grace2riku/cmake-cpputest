@@ -78,13 +78,8 @@ TEST(LedDriver, UpperAndLowerBounds)
 TEST(LedDriver, OutOfBoundsChangesNothing)
 {
   LedDriver_TurnOn(-1);
-  LONGS_EQUAL(0, virtualLeds);
   LedDriver_TurnOn(0);
-  LONGS_EQUAL(0, virtualLeds);
   LedDriver_TurnOn(17);
-  LONGS_EQUAL(0, virtualLeds);
-  LedDriver_TurnOn(33);
-  LONGS_EQUAL(0, virtualLeds);
   LedDriver_TurnOn(3141);
   LONGS_EQUAL(0, virtualLeds);
 }
