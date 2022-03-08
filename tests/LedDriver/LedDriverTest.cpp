@@ -83,3 +83,12 @@ TEST(LedDriver, OutOfBoundsChangesNothing)
   LedDriver_TurnOn(3141);
   LONGS_EQUAL(0, virtualLeds);
 }
+
+TEST(LedDriver, OutOfBoundsTurnOffDoesNoHarm)
+{
+  LedDriver_TurnOff(-1);
+  LedDriver_TurnOff(0);
+  LedDriver_TurnOff(17);
+  LedDriver_TurnOff(3141);
+  LONGS_EQUAL(0, virtualLeds);
+}
