@@ -86,6 +86,7 @@ TEST(LedDriver, OutOfBoundsChangesNothing)
 
 TEST(LedDriver, OutOfBoundsTurnOffDoesNoHarm)
 {
+  LedDriver_TurnAllOn();
   LedDriver_TurnOff(-1);
   LedDriver_TurnOff(0);
   LedDriver_TurnOff(17);
