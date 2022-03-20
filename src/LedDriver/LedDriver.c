@@ -37,14 +37,24 @@ void LedDriver_Destroy(void)
 {
 }
 
+static void setLedImageBit(int ledNumber)
+{
+    ledsImage |= convertLedNumberToBit(ledNumber);
+}
+
 void LedDriver_TurnOn(int ledNumber)
 {
     if (IsLedOutOfBounds(ledNumber)) {
         return;
     }
 
-    ledsImage |= convertLedNumberToBit(ledNumber);
+    setLedImageBit(ledNumber);
     updateHardware();
+}
+
+static void clearLedImageBit(int ledNumber)
+{
+    ledsImage &= ~(convertLedNumberToBit(ledNumber));
 }
 
 void LedDriver_TurnOff(int ledNumber)
@@ -53,7 +63,7 @@ void LedDriver_TurnOff(int ledNumber)
         return;
     }
 
-    ledsImage &= ~(convertLedNumberToBit(ledNumber));
+    clearLedImageBit(ledNumber);
     updateHardware();
 }
 
