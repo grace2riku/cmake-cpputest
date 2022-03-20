@@ -105,3 +105,10 @@ IGNORE_TEST(LedDriver, OutOfBoundsTodo)
 {
   /* TODO: 実行中に何をするべきだろうか? */
 }
+
+TEST(LedDriver, IsOn)
+{
+  CHECK_EQUAL(FALSE, LedDriver_IsOn(11));
+  LedDriver_TurnOn(11);
+  CHECK_EQUAL(TRUE, LedDriver_IsOn(11));
+}

@@ -72,3 +72,8 @@ void LedDriver_TurnAllOn(void)
     ledsImage = ALL_LEDS_ON;
     updateHardware();
 }
+
+BOOL LedDriver_IsOn(int ledNumber)
+{
+    return FALSE;
+}
