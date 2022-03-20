@@ -2,6 +2,10 @@
 #define D_LedDriver_H
 #include <stdint.h>   // uint16_t
 
+#define TRUE 1
+#define FALSE 0
+typedef int BOOL;
+
 /**********************************************************
  *
  * LedDriver is responsible for ...
