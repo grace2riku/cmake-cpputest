@@ -39,11 +39,6 @@ void LedDriver_Destroy(void)
 
 void LedDriver_TurnOn(int ledNumber)
 {
-//    if (ledNumber <= 0 || ledNumber > 16) {
-//        RUNTIME_ERROR("LED Driver: out-of-bounds LED", ledNumber);
-//        return;
-//    }
-
     if (IsLedOutOfBounds(ledNumber)) {
         return;
     }
@@ -54,8 +49,6 @@ void LedDriver_TurnOn(int ledNumber)
 
 void LedDriver_TurnOff(int ledNumber)
 {
-//    if (ledNumber <= 0 || ledNumber > 16)
-//        return;
     if (IsLedOutOfBounds(ledNumber)) {
         return;
     }
