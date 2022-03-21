@@ -125,3 +125,11 @@ TEST(LedDriver, IsOff)
   LedDriver_TurnOn(12);
   CHECK_EQUAL(FALSE, LedDriver_IsOff(12));
 }
+
+TEST(LedDriver, TurnOffMultipleLeds)
+{
+  LedDriver_TurnAllOn();
+  LedDriver_TurnOff(9);
+  LedDriver_TurnOff(8);
+  LONGS_EQUAL((~0x180)&0xffff, virtualLeds);
+}
