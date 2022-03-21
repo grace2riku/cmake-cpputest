@@ -19,5 +19,6 @@ void LedDriver_TurnOff(int ledNumber);
 void LedDriver_TurnAllOn(void);
 BOOL LedDriver_IsOn(int ledNumber);
 BOOL LedDriver_IsOff(int ledNumber);
+void LedDriver_TurnAllOff(void);
 
 #endif  /* D_FakeLedDriver_H */
