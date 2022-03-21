@@ -118,3 +118,10 @@ TEST(LedDriver, OutOfBoundsLedsAreAlwaysOff)
   CHECK_EQUAL(FALSE, LedDriver_IsOn(0));
   CHECK_EQUAL(FALSE, LedDriver_IsOn(17));
 }
+
+TEST(LedDriver, IsOff)
+{
+  CHECK_EQUAL(TRUE, LedDriver_IsOff(12));
+  LedDriver_TurnOff(12);
+  CHECK_EQUAL(FALSE, LedDriver_IsOff(12));
+}

@@ -77,6 +77,11 @@ BOOL LedDriver_IsOn(int ledNumber)
 {
     if (IsLedOutOfBounds(ledNumber))
         return FALSE;
-        
+
     return 0 != (ledsImage & convertLedNumberToBit(ledNumber));
+}
+
+BOOL LedDriver_IsOff(int ledNumber)
+{
+    return FALSE;
 }
