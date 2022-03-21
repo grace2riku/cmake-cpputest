@@ -83,5 +83,5 @@ BOOL LedDriver_IsOn(int ledNumber)
 
 BOOL LedDriver_IsOff(int ledNumber)
 {
-    return FALSE;
+    return !LedDriver_IsOn(ledNumber);
 }
